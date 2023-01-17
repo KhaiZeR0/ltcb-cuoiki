@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdio.h>
+#include <fstream>
 using namespace std;
 
 struct Banhang
@@ -12,7 +14,9 @@ struct Banhang
 };
 
 // khai bao ham con
+void menu();
 void nhapbanhang(Banhang &x);
+void nhapbanhangtxt(Banhang &x);
 void xuatbanhang(Banhang x);
 void nhapMangbanhang(Banhang a[], int &n);
 void xuatMangbanhang(Banhang a[], int n);
@@ -22,23 +26,117 @@ void nhapmangsapxepgiamdan(Banhang a[], int n);
 void xuatmangsapxepgiamdan(Banhang a[], int n);
 unsigned long mathangcosoluongthapnhat(Banhang a[], int n);
 unsigned long tongsoluongmathang(Banhang a[], int n);
+void xuatmangsapxepgiamdan(Banhang a[], int n);
+void nhapmangsapxeptangdan(Banhang a[], int n);
+void timkiemmathang(Banhang a[], int n);
+double danhsachtren50000den150000(Banhang a[], int n);
+bool checktangdantheodongia(Banhang a[], int n);
 
 int main()
-{  
+{
     Banhang mh[40];
-    int somh;
-    nhapMangbanhang(mh, somh);
-    cout << "\nThong tin don hang duoc nhap la: ";
-    xuatMangbanhang(mh, somh);
-    cout << "\nTong gia tri cac mat hang la: ";
-    cout << tongtrigiamathang(mh, somh) << endl;
-    mathangcodongiacaonhat(mh, somh);
-    nhapmangsapxepgiamdan(mh, somh);
-    cout<<"\nDanh sach cac mat hang theo thu tu giam dan theo don gia la: ";
-    xuatmangsapxepgiamdan(mh, somh);
-    mathangcosoluongthapnhat(mh,somh);
-    cout << tongsoluongmathang(mh, somh) << endl;
+    int somh,n,chon=0;
+    do
+    {
+        menu();
+        cout<<"\nVui long chon 1 chuc nang: ";
+        cin >> chon;
+        switch (chon)
+        {
+        case 1:
+            {
+                cout<<"\n1. Cao Phan Khai";
+                break;
+            }
+        case 2:
+            {
+                nhapMangbanhang(mh, somh);
+                break;
+            }
+        case 3:
+            {
+                
+                break;
+            }
+        case 4:
+            {
+                cout << "\nThong tin don hang duoc nhap la: ";
+                xuatMangbanhang(mh, somh);
+                break;
+            }   
+        case 5:
+            {
+                cout << "\nTong gia tri cac mat hang la: ";
+                cout << tongtrigiamathang(mh, somh) << endl;               
+                break;
+            }
+        case 6:
+            {
+                mathangcodongiacaonhat(mh, somh);
+                break;
+            }
+        case 7:
+            {
+                nhapmangsapxepgiamdan(mh, somh);
+                cout<<"\nDanh sach cac mat hang theo thu tu giam dan theo don gia la: ";
+                xuatmangsapxepgiamdan(mh, somh);
+                break;
+            }
+        case 8:
+            {
+                mathangcosoluongthapnhat(mh,somh);
+                break;
+            }
+        case 9:
+            {
+                cout << tongsoluongmathang(mh, somh) << endl;
+                break;
+            }
+        case 10:
+            {
+                if(checktangdantheodongia(mh,somh)==true)
+                {
+                    cout<<"\nDung";
+                }
+                else 
+                {
+                    cout<<"\nSai";
+                }
+            }
+        case 11:
+            {
+                timkiemmathang(mh,somh);
+                break;
+            }
+        case 12:
+            {
+                danhsachtren50000den150000(mh,somh);
+                break;
+            }
+        default:
+            break;
+        }
+
+    } while (chon!=0);
     return (0);
+}
+
+void menu()
+{
+    cout<<"\n--------------Nhom Anh Em Van Phong----------------";
+    cout<<"\n1. Thong tin thanh vien nhom";
+    cout<<"\n2. Nhap danh sach cac mat hang";
+    cout<<"\n3. Nhap danh sach mat hang tu file txt";
+    cout<<"\n4. Xuat danh sach cac mat hang";
+    cout<<"\n5. Tinh tong tri gia cac mat hang co trong danh sach";
+    cout<<"\n6. In ra danh sach cac mat hang co don gia cao nhat";
+    cout<<"\n7. Sap xep danh sach mat hang giam dan theo don gia";
+    cout<<"\n8. in ra danh sach cac mat hang co so luong thap nhat";
+    cout<<"\n9. Tinh tong so luong cac mat hang co trong danh sach";
+    cout<<"\n10.";
+    cout<<"\n11. Tim kiem mat hang khi biet ma hang";
+    cout<<"\n12. Danh sach cac mat hang co don gia tren tu 50k->150k";
+    cout<<"\n---------------------------------------------------";
 }
 
 void nhapbanhang(Banhang &x)
@@ -55,6 +153,8 @@ void nhapbanhang(Banhang &x)
     cout << "\nNhap don gia: ";
     cin >> x.dongia;
 }
+
+
 
 void xuatbanhang(Banhang x)
 {
@@ -147,4 +247,33 @@ unsigned long tongsoluongmathang(Banhang a[], int n)
     for (int i = 1; i < n; i++)
         sum += a[i].soluong;
     return sum;
+}
+
+void timkiemmathang(Banhang a[], int n)
+{
+    string tk;
+    cout << "\nVui long nhap ma don hang can tim: ";
+    cin >> tk;
+    bool found = false;
+    for(int i=0;i<n;i++)
+    {
+        if(tk == a[i].mahang)
+        {
+            cout <<"\n"<<a[i].mahang<<"\t"<<a[i].tenhang;
+        }
+    }
+}
+bool checktangdantheodongia(Banhang a[], int n)
+{
+    for(int i = 0; i < n-1; i++){
+        if(a[i].dongia > a[i+1].dongia) return false;
+    }
+    return true;
+}
+double danhsachtren50000den150000(Banhang a[], int n)
+{   
+    cout<<"\nTen hang \t Don gia";
+    for (int i=0;i<n;i++)
+        if(50000<=a[i].dongia && a[i].dongia<=150000)
+            cout<<"\n"<<a[i].tenhang<<"\t"<<a[i].dongia;
 }
