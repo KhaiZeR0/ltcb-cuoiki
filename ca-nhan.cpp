@@ -35,8 +35,8 @@ int main() {
             }
         case 2:
             {
-                cout<<"\n";
                 xuatMang(arr,n);
+                cout<<"\n";
                 break;
             }
         case 3:
@@ -44,7 +44,7 @@ int main() {
                 int sample[] = {-8, 8, 5, 10, -5, 0, 1, 2};
                 int sum = 0;
                 sum = tinhtongduongleboi5(sample, sizeof(sample) / sizeof(int));
-                cout << "the sum of Positive numbers which are multiple of 5 is: " << sum;
+                cout << "Tong cac so duong le la boi cua 5 co trong mang: " << sum;
                 return 0;
                 break;
             }
