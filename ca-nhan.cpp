@@ -86,7 +86,7 @@ void menu()
     cout<<"\n4. Trung binh cong cac so duong co trong mang";//done bai 5
     cout<<"\n5. Tinh tong cac so nguyen to co trong mang";//xong nhung deo hieu bai 8
     cout<<"\n6. Cho biet trong mang co bao nhieu so hoan thien";//bai 11
-    cout<<"\n7. ";
+    cout<<"\n7. ";//bai 14 
     cout<<"\n-----------------------------------------------------------------------------";
 }
 
