@@ -20,6 +20,8 @@ int TongNguyenTo(int arr[], int spt);
 bool kiemtrasohoanthien(int n);
 void sohoanthien(int arr[], int spt);
 void lietketoanchan(int arr[], int spt);
+int kiemtrachanhaykhong(int arr[], int spt);
+
 
 
 int main() {
@@ -74,6 +76,18 @@ int main() {
                 lietketoanchan(arr,n);
                 break;
             }
+        case 8:
+            {
+                if(kiemtrachanhaykhong(arr,n)==-1)
+                {
+		            cout<<("\nMang khong co bao gom tat ca cac phan tu la so chan");
+                }
+	            else
+                {
+                    cout<<("\nMang co bao gom tat ca cac phan tu la so chan");
+                }
+                break;
+            }
         default:
             break;   
         }
@@ -94,7 +108,11 @@ void menu()
     cout<<"\n5. Tinh tong cac so nguyen to co trong mang";//xong nhung deo hieu bai 8
     cout<<"\n6. Cho biet trong mang co bao nhieu so hoan thien";//bai 11
     cout<<"\n7. Cho biet trong mang co mang nao co phan tu nao la so nguyen co cac chu so toan chan hay khong";// done bai 14 
-    cout<<"\n8.";
+    cout<<"\n8. Cho biet trong mang co bao gom tat ca cac phan tu la so chan khong";//done bai 17
+    cout<<"\n9. ";//bai 20
+    cout<<"\n10. ";//bai 23
+    cout<<"\n11. ";//bai 26
+    cout<<"\n0. Thoat chuong trinh";
     cout<<"\n-------------------------------------------------------------------------------------------------";
 }
 
@@ -208,4 +226,14 @@ void lietketoanchan(int arr[], int spt)
             cout<<"\n"<<arr[i];
         }
     }
+}
+int kiemtrachanhaykhong(int arr[], int spt)
+{
+	for( int i=0;i<spt;i++)
+		if(arr[i]%2!=0)
+		{
+			return -1;
+			break;
+		}
+	return 1;
 }
