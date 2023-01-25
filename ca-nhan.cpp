@@ -19,6 +19,7 @@ int KiemTra(int spt);
 int TongNguyenTo(int arr[], int spt);
 bool kiemtrasohoanthien(int n);
 void sohoanthien(int arr[], int spt);
+void lietketoanchan(int arr[], int spt);
 
 
 int main() {
@@ -67,6 +68,12 @@ int main() {
                 sohoanthien(arr,n);
                 break;
             }
+        case 7:
+            {
+                cout<<"\nPhan tu la so nguyen co cac chu so toan chan la: ";
+                lietketoanchan(arr,n);
+                break;
+            }
         default:
             break;   
         }
@@ -79,15 +86,16 @@ int main() {
 
 void menu()
 {
-    cout<<"\n--------------NGUOI THUC HIEN: CAO PHAN KHAI - 2274801030064 ----------------";
+    cout<<"\n------------------------NGUOI THUC HIEN: CAO PHAN KHAI - 2274801030064 --------------------------";
     cout<<"\n1. Nhap mang";//done
     cout<<"\n2. Xuat Mang";//done
     cout<<"\n3. Tong cac so duong le la boi so cua 5 co trong mang";//done bai 2
     cout<<"\n4. Trung binh cong cac so duong co trong mang";//done bai 5
     cout<<"\n5. Tinh tong cac so nguyen to co trong mang";//xong nhung deo hieu bai 8
     cout<<"\n6. Cho biet trong mang co bao nhieu so hoan thien";//bai 11
-    cout<<"\n7. ";//bai 14 
-    cout<<"\n-----------------------------------------------------------------------------";
+    cout<<"\n7. Cho biet trong mang co mang nao co phan tu nao la so nguyen co cac chu so toan chan hay khong";// done bai 14 
+    cout<<"\n8.";
+    cout<<"\n-------------------------------------------------------------------------------------------------";
 }
 
 void nhapMang(int a[KTM], int &spt)
@@ -169,7 +177,8 @@ int TongNguyenTo(int arr[], int spt)
     return sum;
 }
 
-bool kiemtrasohoanthien(int n){
+bool kiemtrasohoanthien(int n)
+{
     int a =0;
     for(int i=1; i<n; i++){
         if(n% i == 0)
@@ -181,10 +190,22 @@ bool kiemtrasohoanthien(int n){
     else
         return false;
 }
-void sohoanthien(int arr[], int spt){
+void sohoanthien(int arr[], int spt)
+{
     cout<<"mang co so hoan thien la: ";
     for(int i =0; i<spt; i++){
         if(kiemtrasohoanthien(arr[i]))   
             cout<<arr[i]<<" ";
+    }
+}
+
+void lietketoanchan(int arr[], int spt)
+{
+    for(int i = 0; i < spt; i++)
+    {
+        if(arr[i] % 2 == 0)
+        {
+            cout<<"\n"<<arr[i];
+        }
     }
 }
