@@ -88,6 +88,10 @@ int main() {
                 }
                 break;
             }
+        case 9:
+            {
+                
+            }
         default:
             break;   
         }
@@ -118,12 +122,10 @@ void menu()
 
 void nhapMang(int a[KTM], int &spt)
 {
-    //nhap so luong phan tu mang
     do{
         cout<<"\nNhap so luong phan tu cua mang: ";
         cin>>spt;
     }while(spt<=0 || spt>KTM);
-    //nhap gia tri cho cac phan tu mang
     cout<<"\nNhap gia tri cho cac phan tu mang: ";
     for(int k=0;k<spt;k++)
     {
