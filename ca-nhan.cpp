@@ -90,7 +90,26 @@ int main() {
             }
         case 9:
             {
-                
+                bool ketqua = kiemtrasohoanthien(n);
+                if (ketqua == true)
+                    {
+                        cout<<"tat ca cac phan tu trong mang la so hoan thien";
+                    }
+                else
+                    {
+                        cout<<"khong phai tat ca cac phan tu trong mang la so hoan thien";
+                    }
+                break;
+            }
+        case 10:
+            {
+
+                break;
+            }
+        case 11: 
+            {
+
+                break;
             }
         default:
             break;   
