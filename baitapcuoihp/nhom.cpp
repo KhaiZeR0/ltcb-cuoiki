@@ -45,7 +45,10 @@ int main()
         {
         case 1:
             {
-                cout<<"\n1. Cao Phan Khai";
+                cout<<"\n1. Cao Phan Khai - 2274801030064";
+                cout<<"\n2. Nguyen Manh Tien - 2274801030149";
+                cout<<"\n3. Nguyen Ngo Hoang Nguyen - 2274801030102";
+                cout<<"\n4. ";
                 break;
             }
         case 2:
@@ -128,16 +131,16 @@ void menu()
     cout<<"\n--------------Nhom Anh Em Van Phong----------------";
     cout<<"\n1. Thong tin thanh vien nhom";
     cout<<"\n2. Nhap danh sach cac mat hang";
-    cout<<"\n3. Nhap danh sach mat hang tu file txt";//chua lam
+    cout<<"\n3. Nhap danh sach mat hang tu file txt(chua biet)";//chua lam
     cout<<"\n4. Xuat danh sach cac mat hang";
-    cout<<"\n5. Tinh tong tri gia cac mat hang co trong danh sach";
-    cout<<"\n6. In ra danh sach cac mat hang co don gia cao nhat";
-    cout<<"\n7. Sap xep danh sach mat hang giam dan theo don gia";
-    cout<<"\n8. in ra danh sach cac mat hang co so luong thap nhat";
-    cout<<"\n9. Tinh tong so luong cac mat hang co trong danh sach";
-    cout<<"\n10. Danh sach mat hang co duoc sap xep tang dan theo don gia hay khong";
-    cout<<"\n11. Tim kiem mat hang khi biet ma hang";
-    cout<<"\n12. Danh sach cac mat hang co don gia tren tu 50k->150k";
+    cout<<"\n5. Tinh tong tri gia cac mat hang co trong danh sach (Tien)";
+    cout<<"\n6. In ra danh sach cac mat hang co don gia cao nhat (Khai)";
+    cout<<"\n7. Sap xep danh sach mat hang giam dan theo don gia (Nguyen)";
+    cout<<"\n8. in ra danh sach cac mat hang co so luong thap nhat (Khai)";
+    cout<<"\n9. Tinh tong so luong cac mat hang co trong danh sach (Tien)";
+    cout<<"\n10. Danh sach mat hang co duoc sap xep tang dan theo don gia hay khong (Nguyen)";
+    cout<<"\n11. Tim kiem mat hang khi biet ma hang (Tam)";
+    cout<<"\n12. Danh sach cac mat hang co don gia tren tu 50k->150k (Tam)";
     cout<<"\n---------------------------------------------------";
 }
 
