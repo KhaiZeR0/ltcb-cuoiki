@@ -21,8 +21,7 @@ bool kiemtrasohoanthien(int n);
 void sohoanthien(int arr[], int spt);
 void lietketoanchan(int arr[], int spt);
 int kiemtrachanhaykhong(int arr[], int spt);
-
-
+bool KiemtraTangDan (int arr[],int spt);
 
 int main() {
     int chon=0;
@@ -90,25 +89,16 @@ int main() {
             }
         case 9:
             {
-                bool ketqua = kiemtrasohoanthien(n);
-                if (ketqua == true)
-                    {
-                        cout<<"tat ca cac phan tu trong mang la so hoan thien";
-                    }
-                else
-                    {
-                        cout<<"khong phai tat ca cac phan tu trong mang la so hoan thien";
-                    }
                 break;
             }
         case 10:
             {
-
+                KiemtraTangDan(arr,n);
                 break;
             }
         case 11: 
             {
-
+                
                 break;
             }
         default:
@@ -229,11 +219,12 @@ bool kiemtrasohoanthien(int n)
     else
         return false;
 }
+
 void sohoanthien(int arr[], int spt)
 {
     cout<<"mang co so hoan thien la: ";
     for(int i =0; i<spt; i++){
-        if(kiemtrasohoanthien(arr[i]))   
+        if(kiemtrasohoanthien(arr[i]))
             cout<<arr[i]<<" ";
     }
 }
@@ -257,4 +248,26 @@ int kiemtrachanhaykhong(int arr[], int spt)
 			break;
 		}
 	return 1;
+}
+bool KiemtraTangDan (int arr[],int spt)
+{
+    for( int i=0;i<=spt;i++)
+        for( int j=i+1;j<spt; j++)
+            if(arr[i]<=arr[j])
+            {
+                cout<<"\nmang tang";
+            }
+            else
+            {
+                cout<<"\nmang khong tang";
+            }
+}
+void xoaphantu(int a[KTM], int &spt, int vtx)
+{
+    for (int i = vtx; i <= spt-1; i++)
+    {
+        a[i] = a[i + 1];
+    }
+    spt--;
+
 }
