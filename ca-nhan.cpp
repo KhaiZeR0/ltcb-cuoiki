@@ -13,7 +13,7 @@ using namespace std;
 void menu();
 void nhapMang(int a[KTM], int &spt);
 void xuatMang(int a[], int spt);
-int tinhtongduongleboi5(int arr[], int spt);
+int tongduongleboi5(int arr[], int spt);
 int tinhTBCongDuong(int arr[], int spt);
 int KiemTra(int spt);
 int TongNguyenTo(int arr[], int spt);
@@ -21,7 +21,9 @@ bool kiemtrasohoanthien(int n);
 void sohoanthien(int arr[], int spt);
 void lietketoanchan(int arr[], int spt);
 int kiemtrachanhaykhong(int arr[], int spt);
-bool KiemtraTangDan (int arr[],int spt);
+int kiemTraMangSapXep(int a[], int spt);
+int kiemTraToanSoHoanThien(int arr[], int spt);
+void xoaPhanTu(int a[], int &spt, int x);
 
 int main() {
     int chon=0;
@@ -47,11 +49,7 @@ int main() {
             }
         case 3:
             {
-                int sample[] = {-8, 8, 5, 10, -5, 0, 1, 2};
-                int sum = 0;
-                sum = tinhtongduongleboi5(sample, sizeof(sample) / sizeof(int));
-                cout << "Tong cac so duong le la boi cua 5 co trong mang: " << sum;
-                return 0;
+                cout<<"Tong cac so duong le co boi so cua 5 la: "<<tongduongleboi5(arr,n);
                 break;
             }
         case 4:
@@ -89,16 +87,34 @@ int main() {
             }
         case 9:
             {
+                if(kiemTraToanSoHoanThien(arr,n)==true)
+                {
+                    cout<<"Mang gom tat ca cac so hoan thien ";
+                }
+                else
+                {
+                    cout<<"Mang khong gom tat ca cac so hoan thien ";
+                }
                 break;
             }
         case 10:
             {
-                KiemtraTangDan(arr,n);
+                if(kiemTraMangSapXep(arr,n)==true)
+                {
+                    cout<<"Mang duoc sap xep giam dan";
+                }
+                else
+                {
+                    cout<<"Mang khong duoc sap xep giam dan ";
+                }
                 break;
             }
-        case 11: 
+        case 11:
             {
-                
+                int s;
+                xoaPhanTu(arr,n,s);
+                cout<<"\nPhan tu con lai:";
+                xuatMang(arr,n);
                 break;
             }
         default:
@@ -122,9 +138,9 @@ void menu()
     cout<<"\n6. Cho biet trong mang co bao nhieu so hoan thien";//bai 11
     cout<<"\n7. Cho biet trong mang co mang nao co phan tu nao la so nguyen co cac chu so toan chan hay khong";// done bai 14 
     cout<<"\n8. Cho biet trong mang co bao gom tat ca cac phan tu la so chan khong";//done bai 17
-    cout<<"\n9. ";//bai 20
+    cout<<"\n9. Cho biet trong mang co bao gom cac so phan tu la so hoan thien";//done bai 20
     cout<<"\n10. ";//bai 23
-    cout<<"\n11. ";//bai 26
+    cout<<"\n11. Xoa mot phan tu khoi mang";//done bai 26
     cout<<"\n0. Thoat chuong trinh";
     cout<<"\n-------------------------------------------------------------------------------------------------";
 }
@@ -160,20 +176,13 @@ bool kiemtrasoam(int n)
     return ret;
 }
 
-int tinhtongduongleboi5(int arr[], int spt)
-{
-    int sum = 0;
-    for (int i=0;i<spt;i++)
-    {
-        if (kiemtrasoam(arr[i]) == false)
-        {
-            if ((arr[i] % 5) == 0)
-            {
-                sum += arr[i];
-            }
-        }
-    }
-    return sum;
+int tongduongleboi5(int arr[], int n){
+    
+	int tong=0;
+	for(int i=0; i<n; i++)
+		if( arr[i]%5==0 && arr[i]>0 && arr[i]%2!=0)
+			tong += arr[i];
+		return tong;
 }
 
 int tinhTBCongDuong(int arr[], int spt)
@@ -249,25 +258,38 @@ int kiemtrachanhaykhong(int arr[], int spt)
 		}
 	return 1;
 }
-bool KiemtraTangDan (int arr[],int spt)
-{
-    for( int i=0;i<=spt;i++)
-        for( int j=i+1;j<spt; j++)
-            if(arr[i]<=arr[j])
-            {
-                cout<<"\nmang tang";
-            }
-            else
-            {
-                cout<<"\nmang khong tang";
-            }
-}
-void xoaphantu(int a[KTM], int &spt, int vtx)
-{
-    for (int i = vtx; i <= spt-1; i++)
-    {
-        a[i] = a[i + 1];
-    }
-    spt--;
 
+int kiemTraMangSapXep(int a[], int spt)
+{
+     for(int i = 0; i < spt-1; i++){
+        if(a[i] < a[i+1]) return false;
+    }
+    return true;
+}
+
+int kiemTraToanSoHoanThien(int a[], int m)
+{
+  for(int i=0;i<m;i++){
+        if(kiemtrasohoanthien(a[i])==0)
+        return false;
+        return true;
+        
+    }
+    
+}
+void xoaPhanTu(int a[], int &spt, int x)
+{
+  if(spt <= 0){
+        return;
+    }
+    if(x < 0){
+        x = 0;
+    }
+    else if(x >= spt){
+        x = spt-1;
+    }
+    for(int i = x; i < spt - 1; i++){
+        a[i] = a[i+1];
+    }
+    --spt;
 }
