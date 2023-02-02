@@ -22,6 +22,7 @@ void sohoanthien(int arr[], int spt);
 void lietketoanchan(int arr[], int spt);
 int kiemtrachanhaykhong(int arr[], int spt);
 int kiemTraMangSapXep(int a[], int spt);
+int kiemTraSoHoanThien2 (int n);
 int kiemTraToanSoHoanThien(int arr[], int spt);
 void xoaPhanTu(int a[], int &spt, int x);
 
@@ -139,7 +140,7 @@ void menu()
     cout<<"\n7. Cho biet trong mang co mang nao co phan tu nao la so nguyen co cac chu so toan chan hay khong";// done bai 14 
     cout<<"\n8. Cho biet trong mang co bao gom tat ca cac phan tu la so chan khong";//done bai 17
     cout<<"\n9. Cho biet trong mang co bao gom cac so phan tu la so hoan thien";//done bai 20
-    cout<<"\n10. ";//bai 23
+    cout<<"\n10. Cho biet phan tu trong mang co duoc sap xep giam dan hay khong";//bai 23
     cout<<"\n11. Xoa mot phan tu khoi mang";//done bai 26
     cout<<"\n0. Thoat chuong trinh";
     cout<<"\n-------------------------------------------------------------------------------------------------";
@@ -267,10 +268,22 @@ int kiemTraMangSapXep(int a[], int spt)
     return true;
 }
 
+int kiemTraSoHoanThien2 (int n)
+{
+  int tong = 0;
+  for(int i=1;i<n/2;i++){
+    if(n%i==0){
+        tong+=i;
+    }  
+  }
+  if(tong==n)
+      return 1;
+  return 0;
+}
 int kiemTraToanSoHoanThien(int a[], int m)
 {
   for(int i=0;i<m;i++){
-        if(kiemtrasohoanthien(a[i])==0)
+        if(kiemTraSoHoanThien2(a[i])==0)
         return false;
         return true;
         
