@@ -280,9 +280,9 @@ int kiemTraSoHoanThien2 (int n)
       return 1;
   return 0;
 }
-int kiemTraToanSoHoanThien(int a[], int m)
+int kiemTraToanSoHoanThien(int a[], int n)
 {
-  for(int i=0;i<m;i++){
+  for(int i=0;i<n;i++){
         if(kiemTraSoHoanThien2(a[i])==0)
         return false;
         return true;
