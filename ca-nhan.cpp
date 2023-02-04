@@ -21,11 +21,12 @@ bool kiemtrasohoanthien(int n);
 void sohoanthien(int arr[], int spt);
 void lietketoanchan(int arr[], int spt);
 int kiemtrachanhaykhong(int arr[], int spt);
-int kiemTraMangSapXep(int a[], int spt);
+int kiemTraGiamDan(int a[], int spt);
 int kiemTraSoHoanThien2 (int n);
 int kiemTraToanSoHoanThien(int arr[], int spt);
 void xoaPhanTu(int a[], int &spt, int x);
 
+//chon chuc nang
 int main() {
     int chon=0;
     int arr[KTM], n;
@@ -34,6 +35,7 @@ int main() {
         menu();
         cout<<"\nVui long chon 1 chuc nang: ";
         cin>>chon;
+        cout<<"\n Thuc hien boi: Cao Phan Khai";
         switch (chon)
         {
         case 1:
@@ -50,7 +52,7 @@ int main() {
             }
         case 3:
             {
-                cout<<"Tong cac so duong le co boi so cua 5 la: "<<tongduongleboi5(arr,n);
+                cout<<"\nTong cac so duong le co boi so cua 5 la: "<<tongduongleboi5(arr,n);
                 break;
             }
         case 4:
@@ -90,23 +92,23 @@ int main() {
             {
                 if(kiemTraToanSoHoanThien(arr,n)==true)
                 {
-                    cout<<"Mang gom tat ca cac so hoan thien ";
+                    cout<<"\nMang gom tat ca cac so hoan thien ";
                 }
                 else
                 {
-                    cout<<"Mang khong gom tat ca cac so hoan thien ";
+                    cout<<"\nMang khong gom tat ca cac so hoan thien ";
                 }
                 break;
             }
         case 10:
             {
-                if(kiemTraMangSapXep(arr,n)==true)
+                if(kiemTraGiamDan(arr,n)==true)
                 {
-                    cout<<"Mang duoc sap xep giam dan";
+                    cout<<"\nMang duoc sap xep giam dan";
                 }
                 else
                 {
-                    cout<<"Mang khong duoc sap xep giam dan ";
+                    cout<<"\nMang khong duoc sap xep giam dan ";
                 }
                 break;
             }
@@ -128,24 +130,26 @@ int main() {
     
 }
 
+// menu
 void menu()
 {
     cout<<"\n------------------------NGUOI THUC HIEN: CAO PHAN KHAI - 2274801030064 --------------------------";
-    cout<<"\n1. Nhap mang";//done
-    cout<<"\n2. Xuat Mang";//done
-    cout<<"\n3. Tong cac so duong le la boi so cua 5 co trong mang";//done bai 2
-    cout<<"\n4. Trung binh cong cac so duong co trong mang";//done bai 5
-    cout<<"\n5. Tinh tong cac so nguyen to co trong mang";//xong nhung deo hieu bai 8
+    cout<<"\n1. Nhap mang";
+    cout<<"\n2. Xuat Mang";
+    cout<<"\n3. Tong cac so duong le la boi so cua 5 co trong mang";//bai 2
+    cout<<"\n4. Trung binh cong cac so duong co trong mang";//bai 5
+    cout<<"\n5. Tinh tong cac so nguyen to co trong mang";//bai 8
     cout<<"\n6. Cho biet trong mang co bao nhieu so hoan thien";//bai 11
-    cout<<"\n7. Cho biet trong mang co mang nao co phan tu nao la so nguyen co cac chu so toan chan hay khong";// done bai 14 
-    cout<<"\n8. Cho biet trong mang co bao gom tat ca cac phan tu la so chan khong";//done bai 17
-    cout<<"\n9. Cho biet trong mang co bao gom cac so phan tu la so hoan thien";//done bai 20
+    cout<<"\n7. Cho biet trong mang co mang nao co phan tu nao la so nguyen co cac chu so toan chan hay khong";//bai 14 
+    cout<<"\n8. Cho biet trong mang co bao gom tat ca cac phan tu la so chan khong";//bai 17
+    cout<<"\n9. Cho biet trong mang co bao gom cac so phan tu la so hoan thien";//bai 20
     cout<<"\n10. Cho biet phan tu trong mang co duoc sap xep giam dan hay khong";//bai 23
-    cout<<"\n11. Xoa mot phan tu khoi mang";//done bai 26
-    cout<<"\n0. Thoat chuong trinh";
+    cout<<"\n11. Xoa mot phan tu khoi mang";//bai 26
+    cout<<"\n0. Thoat chuong trinh (exit program)";
     cout<<"\n-------------------------------------------------------------------------------------------------";
 }
 
+//chuong trinh
 void nhapMang(int a[KTM], int &spt)
 {
     do{
@@ -232,7 +236,7 @@ bool kiemtrasohoanthien(int n)
 
 void sohoanthien(int arr[], int spt)
 {
-    cout<<"mang co so hoan thien la: ";
+    cout<<"\nmang co so hoan thien la: ";
     for(int i =0; i<spt; i++){
         if(kiemtrasohoanthien(arr[i]))
             cout<<arr[i]<<" ";
@@ -260,7 +264,7 @@ int kiemtrachanhaykhong(int arr[], int spt)
 	return 1;
 }
 
-int kiemTraMangSapXep(int a[], int spt)
+int kiemTraGiamDan(int a[], int spt)
 {
      for(int i = 0; i < spt-1; i++){
         if(a[i] < a[i+1]) return false;
@@ -286,9 +290,7 @@ int kiemTraToanSoHoanThien(int a[], int n)
         if(kiemTraSoHoanThien2(a[i])==0)
         return false;
         return true;
-        
     }
-    
 }
 void xoaPhanTu(int a[], int &spt, int x)
 {
