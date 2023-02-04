@@ -21,7 +21,7 @@ void xuatbanhang(Banhang x);
 void nhapMangbanhang(Banhang a[], int &n);
 void xuatMangbanhang(Banhang a[], int n);
 unsigned long tongtrigiamathang(Banhang a[], int n);
-void mathangcodongiacaonhat(Banhang a[], int n);
+unsigned long mathangcodongiacaonhat(Banhang a[], int n);
 void nhapmangsapxepgiamdan(Banhang a[], int n);
 void xuatmangsapxepgiamdan(Banhang a[], int n);
 void mathangcosoluongthapnhat(Banhang a[], int n);
@@ -75,7 +75,7 @@ int main()
             }
         case 6:
             {
-                mathangcodongiacaonhat(mh, somh);
+                cout<<mathangcodongiacaonhat(mh, somh);
                 break;
             }
         case 7:
@@ -196,7 +196,7 @@ unsigned long tongtrigiamathang(Banhang a[], int n)
         sum += a[i].dongia * a[i].soluong;
     return sum;
 }
-void mathangcodongiacaonhat(Banhang a[], int n)
+unsigned long mathangcodongiacaonhat(Banhang a[], int n)
 {
     unsigned long max = a[0].dongia;
     for (int i = 1; i < n; i++)
@@ -249,6 +249,7 @@ void mathangcosoluongthapnhat(Banhang a[], int n)
 unsigned long tongsoluongmathang(Banhang a[], int n)
 {
     unsigned long sum = a[0].soluong;
+    cout<<"\nTong so luong mat hang ";
     for (int i = 1; i < n; i++)
         sum += a[i].soluong;
     return sum;
@@ -264,7 +265,7 @@ void timkiemmathang(Banhang a[], int n)
     {
         if(tk == a[i].mahang)
         {
-            cout <<"\n"<<a[i].mahang<<"\t"<<a[i].tenhang;
+            cout <<"\nTen mat hang la: "<<a[i].tenhang;
         }
     }
 }
