@@ -143,6 +143,7 @@ void menu()
     cout << "\n10. Danh sach mat hang co duoc sap xep tang dan theo don gia hay khong (Nguyen)";
     cout << "\n11. Tim kiem mat hang khi biet ma hang (Tam)";
     cout << "\n12. Danh sach cac mat hang co don gia tren tu 50k->150k (Tam)";
+    cout << "\n0. thoat chuong trinh";
     cout << "\n---------------------------------------------------";
 }
 void nhapbanhang(Banhang &x)
@@ -240,7 +241,7 @@ void mathangcosoluongthapnhat(Banhang a[], int n)
         {
             cout << "\nTen Hang \t So luong";
             cout << "\n"
-                 << a[i].tenhang << "\t" << a[i].soluong << endl;
+                 << a[i].tenhang << "\t\t" << a[i].soluong << endl;
         }
 }
 unsigned long tongsoluongmathang(Banhang a[], int n)
@@ -278,7 +279,7 @@ void danhsachtren50000den150000(Banhang a[], int n)
     for (int i = 0; i < n; i++)
         if (50000 <= a[i].dongia && a[i].dongia <= 150000)
             cout << "\n"
-                 << a[i].tenhang << "\t" << a[i].dongia;
+                 << a[i].tenhang << "\t\t" << a[i].dongia;
 }
 void readFileTXT()
 {
