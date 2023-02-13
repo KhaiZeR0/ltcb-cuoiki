@@ -263,8 +263,10 @@ void timkiemmathang(Banhang a[], int n)
         if (tk == a[i].mahang)
         {
             cout << "\nTen mat hang la: " << a[i].tenhang;
+            return;
         }
     }
+    cout<<"\nMa hang khong hop le";
 }
 bool checktangdantheodongia(Banhang a[], int n)
 {
