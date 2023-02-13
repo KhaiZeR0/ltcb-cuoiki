@@ -143,7 +143,6 @@ void menu()
     cout << "\n10. Danh sach mat hang co duoc sap xep tang dan theo don gia hay khong (Nguyen)";
     cout << "\n11. Tim kiem mat hang khi biet ma hang (Tam)";
     cout << "\n12. Danh sach cac mat hang co don gia tren tu 50k->150k (Tam)";
-    cout << "\n0. thoat chuong trinh";
     cout << "\n---------------------------------------------------";
 }
 void nhapbanhang(Banhang &x)
@@ -204,7 +203,8 @@ unsigned long mathangcodongiacaonhat(Banhang a[], int n)
         if (a[i].dongia == max)
         {
             cout << "\nTen Hang \t Don gia";
-            cout << "\n" << a[i].tenhang << "\t\t  " << a[i].dongia << endl;
+            cout << "\n"
+                 << a[i].tenhang << "\t\t  " << a[i].dongia << endl;
         }
 }
 void nhapmangsapxepgiamdan(Banhang a[], int n)
@@ -226,7 +226,7 @@ void xuatmangsapxepgiamdan(Banhang a[], int n)
     for (i = 0; i < n; i++)
     {
         cout << "\n"
-             << a[i].tenhang << "\t\t  " << a[i].dongia << endl;
+             << a[i].tenhang << "\t\t" << a[i].dongia << endl;
     }
 }
 void mathangcosoluongthapnhat(Banhang a[], int n)
