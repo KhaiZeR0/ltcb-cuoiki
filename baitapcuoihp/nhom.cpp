@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdio.h>
 #include <fstream>
+#include <vector>
+
 using namespace std;
 
 struct Banhang
@@ -31,7 +33,7 @@ void nhapmangsapxeptangdan(Banhang a[], int n);
 void timkiemmathang(Banhang a[], int n);
 void danhsachtren50000den150000(Banhang a[], int n);
 bool checktangdantheodongia(Banhang a[], int n);
-
+void readFileTXT();
 int main()
 {
     Banhang mh[40];
@@ -58,7 +60,7 @@ int main()
             }
         case 3:
             {
-                
+                readFileTXT();
                 break;
             }
         case 4:
@@ -131,7 +133,7 @@ void menu()
     cout<<"\n--------------Nhom Anh Em Van Phong----------------";
     cout<<"\n1. Thong tin thanh vien nhom";
     cout<<"\n2. Nhap danh sach cac mat hang";
-    cout<<"\n3. Nhap danh sach mat hang tu file txt(chua biet)";//chua lam
+    cout<<"\n3. Nhap danh sach mat hang tu file txt(Nguyen)";//chua xong
     cout<<"\n4. Xuat danh sach cac mat hang";
     cout<<"\n5. Tinh tong tri gia cac mat hang co trong danh sach (Tien)";
     cout<<"\n6. In ra danh sach cac mat hang co don gia cao nhat (Khai)";
@@ -143,7 +145,6 @@ void menu()
     cout<<"\n12. Danh sach cac mat hang co don gia tren tu 50k->150k (Tam)";
     cout<<"\n---------------------------------------------------";
 }
-
 void nhapbanhang(Banhang &x)
 {
     cout << "\nNhap ma hang: ";
@@ -158,15 +159,11 @@ void nhapbanhang(Banhang &x)
     cout << "\nNhap don gia: ";
     cin >> x.dongia;
 }
-
-
-
 void xuatbanhang(Banhang x)
 {
     cout << "\n"
          << x.mahang << "  " << x.tenhang << "  " << x.donvitinh << "  " << x.soluong << "  " << x.dongia;
 }
-
 void nhapMangbanhang(Banhang a[], int &n)
 {
     do
@@ -180,7 +177,6 @@ void nhapMangbanhang(Banhang a[], int &n)
         nhapbanhang(a[k]);
     }
 }
-
 void xuatMangbanhang(Banhang a[], int n)
 {
     cout << "\nMa Hang  Ten mat hang  don vi tinh  so luong  don gia";
@@ -210,7 +206,6 @@ unsigned long mathangcodongiacaonhat(Banhang a[], int n)
             cout <<"\n"<< a[i].tenhang << "\t" << a[i].dongia << endl;
         }
 }
-// sapxep
 void nhapmangsapxepgiamdan(Banhang a[], int n)
 {
     int trunggian;
@@ -254,7 +249,6 @@ unsigned long tongsoluongmathang(Banhang a[], int n)
         sum += a[i].soluong;
     return sum;
 }
-
 void timkiemmathang(Banhang a[], int n)
 {
     string tk;
@@ -282,4 +276,17 @@ void danhsachtren50000den150000(Banhang a[], int n)
     for (int i=0;i<n;i++)
         if(50000<=a[i].dongia && a[i].dongia<=150000)
             cout<<"\n"<<a[i].tenhang<<"\t"<<a[i].dongia;
+}
+void readFileTXT()
+{
+    // tạo string để output file
+    vector<string> myTexts;
+    string myText;
+    ifstream ifs("Exam.txt");
+    while (getline(ifs, myText))
+        myTexts.push_back(myText);
+    //Xuất từng dòng từ lines và in ra màn hình
+    for (const auto &i : myTexts)
+        cout << i << endl;
+    ifs.close();
 }
