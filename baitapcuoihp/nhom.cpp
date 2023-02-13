@@ -133,7 +133,7 @@ void menu()
     cout << "\n--------------Nhom Anh Em Van Phong----------------";
     cout << "\n1. Thong tin thanh vien nhom";
     cout << "\n2. Nhap danh sach cac mat hang";
-    cout << "\n3. Nhap danh sach mat hang tu file txt(chua biet)"; // chua lam
+    cout << "\n3. Nhap danh sach mat hang tu file txt(chua biet)"; // chua lam duoc
     cout << "\n4. Xuat danh sach cac mat hang";
     cout << "\n5. Tinh tong tri gia cac mat hang co trong danh sach (Tien)";
     cout << "\n6. In ra danh sach cac mat hang co don gia cao nhat (Khai)";
