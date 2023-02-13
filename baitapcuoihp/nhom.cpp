@@ -203,8 +203,7 @@ unsigned long mathangcodongiacaonhat(Banhang a[], int n)
         if (a[i].dongia == max)
         {
             cout << "\nTen Hang \t Don gia";
-            cout << "\n"
-                 << a[i].tenhang << "\t" << a[i].dongia << endl;
+            cout << "\n" << a[i].tenhang << "\t\t  " << a[i].dongia << endl;
         }
 }
 void nhapmangsapxepgiamdan(Banhang a[], int n)
@@ -226,7 +225,7 @@ void xuatmangsapxepgiamdan(Banhang a[], int n)
     for (i = 0; i < n; i++)
     {
         cout << "\n"
-             << a[i].tenhang << "\t" << a[i].dongia << endl;
+             << a[i].tenhang << "\t\t  " << a[i].dongia << endl;
     }
 }
 void mathangcosoluongthapnhat(Banhang a[], int n)
