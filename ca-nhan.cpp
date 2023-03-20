@@ -1,9 +1,4 @@
-// Bài tập đồ án cá nhân
 //Họ và tên: Cao Phan Khải
-//MSSV: 2274801030064
-//lớp: 71K28KTPM01
-//Lớp học phần: 71SEBA10012_01
-//các câu thục hiện: 2,5,8,11,14,17,20,23,26
 
 #include <iostream>
 using namespace std;
